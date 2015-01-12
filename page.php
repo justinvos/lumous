@@ -1,12 +1,14 @@
 <?php
 
+  $cover_image = "#333";
+
   function create_head()
   {
     $text = '<div class="head_wrap">';
 
     $text = $text . '<div class="head_area">';
 
-    $text = $text . '<a href="#"><h2>Lumous</h2></a>';
+    $text = $text . '<a href="#"><h2>' . $GLOBALS['site_name'] . '</h2></a>';
 
     $text = $text . create_nav();
 
@@ -75,6 +77,9 @@
 
     <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'>-->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="style.php">
+
+    <?php onHeader(); ?>
 
   </head>
 
