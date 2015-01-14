@@ -1,44 +1,63 @@
 <?php
 
+  $page_id = 2;
+  if(isset($_GET['p']))
+  {
+    $page_id = $_GET['p'];
+  }
+
   include 'config/config.php';
-  include 'style.php';
+  include 'database.php';
 
-  onAwake();
-
+  include 'section.php';
+  include 'page.php';
+  $page = new Page($page_id);
 
   //Needs to be the last include. Renders the webpage.
-  include 'page.php';
+  include 'template/default.php';
 
-  function onAwake()
+  function get_section_id_map()
   {
-    load_config();
+    return array("About"=>"#about", "Journal"=>"#journal");
   }
 
-  function onHeader()
+  function has_user_logged_in()
   {
-    echo "<style>";
-    echo ".head_wrap{";
-    echo "background: " . $GLOBALS['default_cover'] . ";";
-    echo "background-size: 100%;";
-    echo "}";
-    echo "</style>";
+    return false;
   }
 
-  function onLoad()
+  function get_page_data()
   {
-    $GLOBALS['has_head'] = true;
+    //$json = file_get_contents("data/project_ipsum.json");
 
-    $GLOBALS['menu_list'] = array("About"=>"#about", "Journal"=>"#journal");
+    $json = '{
+      "title":"Project Ipsum",
+      "sections":{
+        "About":{"link":"#about", "content":"<h1>About Lumous</h1>"},
+        "Journal":{"link":"#journal", "content":"<h1>Journal</h1>"}
+      }
+    }';
 
-
-    if($GLOBALS['has_head'])
-    {
-      echo create_head();
-    }
-
-    echo create_section("menu", create_menu($GLOBALS['menu_list']));
-
-
+    return json_decode($json);
   }
+
+/*function onLoad()
+{
+  $GLOBALS['has_head'] = true;
+
+  $GLOBALS['menu_list'] = array("About"=>"#about", "Journal"=>"#journal");
+
+
+  if($GLOBALS['has_head'])
+  {
+    echo create_head();
+  }
+
+  echo create_section("menu", create_menu($GLOBALS['menu_list']));
+
+
+  echo '<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>';
+  echo '<script src="js/main.js"></script>';
+}*/
 
 ?>
