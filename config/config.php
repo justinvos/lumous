@@ -1,6 +1,17 @@
 <?php
 
-  load_config();
+  $CONFIG = array();
+
+  if(can_load_config())
+  {
+    load_config();
+  }
+
+
+  function can_load_config()
+  {
+    return file_exists("config/main.json");
+  }
 
   function load_config()
   {
@@ -29,22 +40,13 @@
 
       $i++;
     }
+  }
 
+  function write_config()
+  {
+    $file = fopen("config/main.json", "w");
 
-    /*$i = 0;
-    while($i < 4)
-    {
-      if(in_array($key_list[$i], $main_config))
-      {
-        $GLOBALS[$key_list[$i]] = $main_config->{$key_list[$i]};
-      }
-      $i++;
-    }*/
-
-    /*$GLOBALS['site_name'] = $main_config->{'site_name'};
-    $GLOBALS['title'] = $main_config->{'title'};
-    $GLOBALS['default_cover'] = $main_config->{'default_cover'};
-    $GLOBALS['password_salt'] = $main_config->{'password_salt'};*/
+    $
   }
 
 ?>

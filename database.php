@@ -1,5 +1,23 @@
 <?php
 
+  function test_db()
+  {
+    return "this is the db file";
+  }
+
+/*
+  function can_connect_db()
+  {
+    try
+    {
+      $connection = new PDO("mysql:host=" . $GLOBALS['db_host'] . ";dbname=" . $GLOBALS['db_name'], $GLOBALS['db_username'], $GLOBALS['db_password']);
+
+      return True;
+    }
+    catch(PDOException $e) {
+      return False;
+    }
+  }*/
 
   function query_db($mysql_statement)
   {
@@ -11,15 +29,4 @@
 
     return $results;
   }
-
-
-
-  /*$stmt = $connection->query('SELECT * FROM pages');
-  $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
-
-  print($results[0]['title']);
-  for($i = 0; $i < sizeof($results); $i++)
-  {
-    echo $results[0]->{"title"};
-  }*/
 ?>

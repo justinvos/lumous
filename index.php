@@ -1,6 +1,6 @@
 <?php
 
-  $page_id = 2;
+  $page_id = 1;
   if(isset($_GET['p']))
   {
     $page_id = $_GET['p'];
@@ -9,12 +9,21 @@
   include 'config/config.php';
   include 'database.php';
 
-  include 'section.php';
-  include 'page.php';
-  $page = new Page($page_id);
+  if(false)
+  {
+    include 'section.php';
+    include 'page.php';
+    $page = new Page($page_id);
 
-  //Needs to be the last include. Renders the webpage.
-  include 'template/default.php';
+    //Needs to be the last include. Renders the webpage.
+    include 'template/default.php';
+  }
+  else
+  {
+    echo "vError";
+  }
+
+
 
   function get_section_id_map()
   {
