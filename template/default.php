@@ -1,5 +1,6 @@
 <?php
   $section = $page->get_sections();
+  //$section = array(new Section($database->get_section(1)));
 ?>
 
 
@@ -9,7 +10,7 @@
     <title><?php echo $GLOBALS['title'] . " - " . $GLOBALS['short_site_name']; ?></title>
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="template/css/main.css">
 
     <style>
 
@@ -64,10 +65,15 @@
 
 
           <?php
-            echo "";
-            for($i = 0; $i < sizeof($section); $i++)
+            $i = 0;
+            while($i < sizeof($section))
             {
-              echo '<a href="' . $section[$i]->name . '"><li>' . $section[$i]->title . '</li></a>';
+              echo '<a href="#';
+              echo $section[$i]->get_name();
+              echo '"><li>';
+              echo $section[$i]->get_title();
+              echo '</li></a>';
+              $i = $i + 1;
             }
           ?>
         </ul>
