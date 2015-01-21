@@ -10,7 +10,7 @@
     <title><?php echo $GLOBALS['title'] . " - " . $GLOBALS['short_site_name']; ?></title>
 
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="template/css/main.css">
+    <link rel="stylesheet" href="template/css/view.css">
 
     <style>
 

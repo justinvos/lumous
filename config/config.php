@@ -1,7 +1,5 @@
 <?php
 
-  $CONFIG = array();
-
   if(can_load_config())
   {
     load_config();
@@ -36,7 +34,6 @@
       if(array_key_exists($key_list[$i], $main_config))
       {
         $GLOBALS[$key_list[$i]] = $main_config->{$key_list[$i]};
-        $CONFIG[$key_list[$i]] = $main_config->{$key_list[$i]};
       }
 
       $i++;
